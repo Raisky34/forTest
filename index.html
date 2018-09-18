@@ -41,11 +41,15 @@
 					rythm.stop()
 				}
 
-				//TODO
+				parent.postMessage('click', {
+					reward: 123,
+					hard: false,
+				});
 			}
 
 			function partyHard () {
-				rythm.start()
+				parent.postMessage('click', { hard: true });
+				rythm.start();
 			}
 		</script>
 	</head>
