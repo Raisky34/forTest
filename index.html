@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://okazari.github.io/Rythm.js/rythm.js"></script>
+		<script src="jquery.js"></script>
+		<script src="doge.js"></script>
+		<link rel="stylesheet" href="style.css">
+		<script>
+			$('image-wrapper').doge({ 
+				wordList : ["so bonus", "very win", "many cool", "much rich", "take it", "grab it", "wow", "press claim", "press it", "much lucky"],
+				fontSize : "2em",
+				colours : ["red", "green", "orange", "violet", "aqua", "yellow", "slateblue", "purple", "pink", "lime", "fuchsia", "gold", "indigo"],
+				textDuration: 1200,
+				textRespawn: 1000,       
+			});
+		</script>
+		<script>
+			window.addEventListener("message", function(event) {
+				parent.postMessage({init: true}, '*')
+			}, false);
+
+			var rythm = new Rythm()
+
+			rythm.addRythm('rythm-color1', 'color', 0, 10, {
+				from: [0,0,255],
+				to:[255,0,255]
+			})
+
+			rythm.addRythm('rythm-color2', 'color', 0, 10, {
+				from: [255,255,0],
+				to:[255,0,0]
+			})
+
+			rythm.addRythm('rythm-vanish', 'vanish', 0, 10)
+
+			rythm.setMusic('music.mp3')
+			rythm.setGain(0.1)
+
+			function claimReward () {
+				if (rythm.stopped === false) {
+					rythm.stop()
+				}
+
+				//TODO
+			}
+
+			function partyHard () {
+				rythm.start()
+			}
+		</script>
+	</head>
+	<body>
+		<div class="image-wrapper">
+			<img class="rythm-vanish" src="image.png">
+		</div>
+		<div class="buttons-wrapper">
+			<button class="rythm-medium rythm-color1" onclick="claimReward()">Claim reward</button>
+			<button class="rythm-medium rythm-color2" onclick="partyHard()">Party hard</button>
+		</div>
+	</body>
+</html>
