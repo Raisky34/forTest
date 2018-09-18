@@ -41,14 +41,14 @@
 					rythm.stop()
 				}
 
-				parent.postMessage('click', {
+				parent.postMessage({
 					reward: 123,
 					hard: false,
-				});
+				}, '*');
 			}
 
 			function partyHard () {
-				parent.postMessage('click', { hard: true });
+				parent.postMessage({ hard: true }, '*');
 				rythm.start();
 			}
 		</script>
