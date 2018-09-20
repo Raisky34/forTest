@@ -19,6 +19,10 @@
 				parent.postMessage({init: true}, '*')
 			}, false);
 
+			document.addEventListener('click', function(event) {
+				parent.postMessage({action: 'click'}, '*');
+			});
+
 			var rythm = new Rythm()
 
 			rythm.addRythm('rythm-color1', 'color', 0, 10, {
